@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube.com; img-src 'self' data: https:;">
+    
+    <title>Edflix - Física com Prof. Edmundo | #1 em aprovação no ENEM</title>
+    <meta name="description" content="+500 alunos, nota 4.9. Curso de Física para ENEM e Vestibulares com Prof. Edmundo. Garantia de 7 dias.">
+    <meta name="theme-color" content="#020617">
+    
+    <meta property="og:title" content="Edflix - Física de Alto Nível">
+    <meta property="og:description" content="Garanta sua vaga com o método que descomplica a Física. Comece agora!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0f172a/3b82f6?text=Edflix+Fisica">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --netflix-red: #E50914;
+            --dark: #020617;
+            --card-bg: #1e293b;
+            --accent: #eab308;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #22c55e; /* Verde Venda */
+            --border: #334155;
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(2, 6, 23, 0.95);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem; font-weight: 900; color: var(--netflix-red);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .login-btn {
+            border: 1px solid var(--primary); color: var(--primary);
+            padding: 8px 16px; border-radius: 50px; font-weight: bold;
+            background: transparent; cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 60px 20px 40px; text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, var(--dark) 100%);
+        }
+
+        .hero-img-container {
+            width: 140px; height: 140px; margin: 0 auto 20px;
+            border-radius: 50%; border: 3px solid var(--accent);
+            background: #334155; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+        }
+        .hero-img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: white; margin-bottom: 10px;
+        }
+
+        /* TRUST BADGES */
+        .trust-badges {
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px;
+            background: rgba(255,255,255,0.05); padding: 10px; border-radius: 20px; display: inline-flex;
+        }
+        .trust-item { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
+
+        .btn-cta {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white; padding: 16px 32px; border: none; border-radius: 50px;
+            font-weight: 700; font-size: 1.1rem; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: transform 0.2s;
+        }
+        .btn-cta:active { transform: scale(0.96); }
+
+        /* DEPOIMENTOS */
+        .testimonials { padding: 40px 20px; text-align: center; }
+        .testim-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px; max-width: 1000px; margin: 20px auto 0;
+        }
+        .testim-card {
+            background: var(--card-bg); padding: 20px; border-radius: 12px; 
+            border: 1px solid var(--border); text-align: left;
+        }
+        .stars { color: var(--accent); letter-spacing: 2px; }
+
+        /* CURSOS */
+        .section-title {
+            font-size: 1.6rem; margin: 40px 20px 20px; color: white;
+            border-left: 4px solid var(--accent); padding-left: 15px;
+        }
+
+        .courses-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; padding: 0 20px 40px; max-width: 1000px; margin: auto;
+        }
+
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; cursor: pointer;
+            position: relative; transition: transform 0.2s;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+        .card-badge {
+            position: absolute; top: 10px; right: 10px; z-index: 10;
+            background: var(--netflix-red); color: white;
+            padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;
+        }
+
+        .card-thumb {
+            height: 160px; background: #000; position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .play-btn { font-size: 3rem; color: white; opacity: 0.9; }
+
+        .card-content { padding: 20px; }
+        
+        /* PREÇOS CORRIGIDOS */
+        .price-box { 
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 5px;
+        }
+        .price-row { display: flex; align-items: baseline; gap: 10px; }
+        .price-old { color: var(--text-muted); text-decoration: line-through; font-size: 0.9rem; }
+        .price-new { 
+            color: var(--success); /* CORRIGIDO: Verde Sucesso */
+            font-weight: 800; font-size: 1.4rem; 
+        }
+        .price-installments { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* GARANTIA */
+        .guarantee-box {
+            background: rgba(34, 197, 94, 0.1); border: 1px solid var(--success);
+            border-radius: 12px; padding: 20px; margin: 20px;
+            text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg); border-bottom: 1px solid var(--border);
+            margin: 0 20px; overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px; font-weight: 600; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-answer {
+            padding: 0 20px; max-height: 0; overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-muted);
+        }
+        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 300px; }
+
+        /* MODAIS */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;
+            padding: 20px; backdrop-filter: blur(5px);
+        }
+        .modal[aria-hidden="false"] { display: flex; }
+        
+        .modal-content {
+            background: var(--card-bg); padding: 25px; border-radius: 16px;
+            width: 100%; max-width: 500px; position: relative; border: 1px solid #475569;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .close-btn {
+            position: absolute; top: 15px; right: 20px; color: #94a3b8;
+            font-size: 28px; cursor: pointer; background: none; border: none;
+        }
+        
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0;
+            border-radius: 12px; margin-bottom: 20px; background: black;
+        }
+        .video-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; }
+
+        /* BOTÃO DE CHECKOUT DO MODAL */
+        .btn-checkout {
+            width: 100%; padding: 16px; background: var(--success); color: white;
+            border: none; border-radius: 8px; font-weight: bold; font-size: 1.1rem;
+            cursor: pointer; text-decoration: none; display: block; text-align: center;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+        
+        input {
+            width: 100%; padding: 14px; margin: 10px 0; background: #0f172a;
+            border: 1px solid #475569; color: white; border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text" aria-label="Logo Edflix">EDFLIX</div>
+        <button class="login-btn" onclick="abrirModal('modalLogin')" aria-label="Acessar Área do Aluno">ÁREA DO ALUNO</button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-img-container">
+                <img src="#" alt="Prof. Edmundo" class="hero-img" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-size:3rem; color:#cbd5e1\'>🎓</span>'">
+            </div>
+            
+            <div class="trust-badges">
+                <div class="trust-item"><span class="material-icons" style="font-size: 1rem; vertical-align: middle;">star</span> 4.9/5 Avaliação</div>
+                <div class="trust-item" style="margin-left: 15px;"><span class="material-icons" style="font-size: 1rem; vertical-align: middle;">group</span> +500 Alunos</div>
+            </div>
+
+            <h1>FÍSICA DE ALTO NÍVEL</h1>
+            <p>Aprenda com quem vive o dia a dia da sala de aula nos <strong>principais colégios de Teresina</strong>.</p>
+            
+            <button class="btn-cta" onclick="rolarPara('cursos')">
+                QUERO SER APROVADO <span class="material-icons">arrow_forward</span>
+            </button>
+        </section>
+
+        <section class="testimonials">
+            <h2 style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 20px;">QUEM JÁ PASSOU POR AQUI</h2>
+            <div class="testim-grid">
+                <div class="testim-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Eu achava impossível aprender elétrica, mas o Edmundo desenha a física na nossa cabeça."</p>
+                    <small style="color:white; display:block; margin-top:10px;">- Amanda S., Aprovada em Medicina</small>
+                </div>
+                <div class="testim-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Didática direto ao ponto. Sem enrolação, só o que cai na prova."</p>
+                    <small style="color:white; display:block; margin-top:10px;">- João P., Eng. Civil</small>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title" id="cursos">Escolha seu Plano</h2>
+        <div class="courses-grid">
+            
+            <div class="card" onclick="abrirCurso('Extensivo ENEM Medicina', 'PGeVOEtwoWs', 'https://pay.kiwify.com.br/SEU-LINK-AQUI')">
+                <div class="card-badge">MAIS VENDIDO</div>
+                <div class="card-thumb"><span class="play-btn">▶</span></div>
+                <div class="card-content">
+                    <span class="trust-item" style="color:#4ade80; border:1px solid #22c55e; padding:2px 8px; border-radius:4px; font-size:0.7rem;">MEDICINA</span>
+                    <h3 style="margin-top:10px;">Extensivo ENEM Reta Final</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Mecânica, Elétrica, Ondulatória e Termologia.</p>
+                    
+                    <div class="price-box">
+                        <div class="price-row">
+                            <div class="price-old">R$ 497</div>
+                            <div class="price-new">R$ 297</div>
+                        </div>
+                        <div class="price-installments">ou 12x de R$ 29,70</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="abrirCurso('Física Básica: Eletrodinâmica', 'PGeVOEtwoWs', 'https://pay.kiwify.com.br/SEU-LINK-AQUI-2')">
+                <div class="card-badge" style="background: var(--primary);">INTENSIVO</div>
+                <div class="card-thumb"><span class="play-btn">⚡</span></div>
+                <div class="card-content">
+                    <span class="trust-item" style="color:#60a5fa; border:1px solid #3b82f6; padding:2px 8px; border-radius:4px; font-size:0.7rem;">ESPECÍFICA</span>
+                    <h3 style="margin-top:10px;">Eletrodinâmica & Circuitos</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Domine resistores, geradores e potências.</p>
+                    
+                    <div class="price-box">
+                        <div class="price-row">
+                            <div class="price-old">R$ 197</div>
+                            <div class="price-new">R$ 97</div>
+                        </div>
+                        <div class="price-installments">ou 10x de R$ 11,00</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guarantee-box">
+            <span class="material-icons" style="font-size: 2.5rem; color: var(--success);">verified_user</span>
+            <h3>Garantia de 7 Dias</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Se não gostar, devolvemos 100% do seu dinheiro. O risco é nosso.</p>
+        </div>
+
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        <div style="margin-bottom: 50px; max-width:800px; margin-left:auto; margin-right:auto;">
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">O acesso é vitalício? <span class="material-icons">expand_more</span></div>
+                <div class="faq-answer">O acesso é válido até a data da prova do ENEM. Você pode rever as aulas quantas vezes quiser.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-question">Tem material em PDF? <span class="material-icons">expand_more</span></div>
+                <div class="faq-answer">Sim! Todas as aulas acompanham listas de exercícios selecionadas pelo Prof. Edmundo.</div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalCurso" class="modal" onclick="fecharNoClique(event)" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-btn" onclick="fecharModal('modalCurso')">&times;</button>
+            <div class="video-wrapper">
+                <iframe id="videoFrame" src="" title="Video Aula" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h3 id="tituloCurso" style="margin-bottom: 10px; color:white;">Titulo do Curso</h3>
+            
+            <a id="btnCheckout" href="#" class="btn-checkout">
+                GARANTIR MINHA VAGA AGORA
+            </a>
+            
+            <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">🔒 Pagamento Seguro via Kiwify</p>
+        </div>
+    </div>
+
+    <div id="modalLogin" class="modal" onclick="fecharNoClique(event)" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content" style="text-align: center;">
+            <button class="close-btn" onclick="fecharModal('modalLogin')">&times;</button>
+            <h3 style="color:white;">Área do Aluno</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Digite suas credenciais para continuar.</p>
+            <input type="email" placeholder="E-mail de acesso">
+            <input type="password" placeholder="Senha">
+            <button class="btn-cta" style="width: 100%; justify-content: center;" onclick="alert('Simulação: Login realizado!')">ENTRAR</button>
+        </div>
+    </div>
+
+    <script>
+        // --- LÓGICA JAVASCRIPT ---
+        
+        // Rolar suave
+        function rolarPara(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Abrir Modal do Curso (Vídeo + Link Personalizado)
+        function abrirCurso(titulo, videoId, linkCheckout) {
+            document.getElementById('tituloCurso').innerText = titulo;
+            // Carrega vídeo do YouTube
+            document.getElementById('videoFrame').src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0"; 
+            // Atualiza o link do botão de compra
+            document.getElementById('btnCheckout').href = linkCheckout;
+            
+            abrirModal('modalCurso');
+        }
+
+        // Função Genérica de Abrir
+        function abrirModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden'; // Trava a rolagem da página
+            }
+        }
+
+        // Função Genérica de Fechar
+        function fecharModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = ''; // Destrava a rolagem
+                
+                // Para o vídeo se for o modal de curso
+                if (id === 'modalCurso') {
+                    document.getElementById('videoFrame').src = "";
+                }
+            }
+        }
+
+        // Fechar ao clicar na parte escura (Overlay)
+        function fecharNoClique(event) {
+            if (event.target.classList.contains('modal')) {
+                fecharModal(event.target.id);
+            }
+        }
+
+        // Fechar com tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                fecharModal('modalCurso');
+                fecharModal('modalLogin');
+            }
+        });
+    </script>
+</body>
+</html>
