@@ -30,7 +30,7 @@
             --accent: #eab308;
             --text-light: #f8fafc;
             --text-muted: #94a3b8;
-            --success: #22c55e; /* Verde Venda */
+            --success: #22c55e;
             --border: #334155;
             --radius: 12px;
         }
@@ -81,6 +81,8 @@
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
         }
+        
+        /* FOTO DO PROFESSOR AQUI */
         .hero-img { width: 100%; height: 100%; object-fit: cover; }
 
         .hero h1 {
@@ -156,7 +158,7 @@
         .price-row { display: flex; align-items: baseline; gap: 10px; }
         .price-old { color: var(--text-muted); text-decoration: line-through; font-size: 0.9rem; }
         .price-new { 
-            color: var(--success); /* Verde Sucesso */
+            color: var(--success);
             font-weight: 800; font-size: 1.4rem; 
         }
         .price-installments { font-size: 0.85rem; color: var(--text-muted); }
@@ -234,7 +236,7 @@
     <main>
         <section class="hero">
             <div class="hero-img-container">
-                <img src="#" alt="Prof. Edmundo" class="hero-img" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-size:3rem; color:#cbd5e1\'>🎓</span>'">
+                <img src="https://i.ibb.co/84xkz1Sx/images-2.jpg" alt="Prof. Edmundo" class="hero-img" loading="lazy">
             </div>
             
             <div class="trust-badges">
@@ -362,14 +364,11 @@
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Abrir Modal do Curso (Vídeo + Link Personalizado)
+        // Abrir Modal do Curso
         function abrirCurso(titulo, videoId, linkCheckout) {
             document.getElementById('tituloCurso').innerText = titulo;
-            // Carrega vídeo do YouTube
             document.getElementById('videoFrame').src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0"; 
-            // Atualiza o link do botão de compra
             document.getElementById('btnCheckout').href = linkCheckout;
-            
             abrirModal('modalCurso');
         }
 
@@ -378,7 +377,7 @@
             const modal = document.getElementById(id);
             if (modal) {
                 modal.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden'; // Trava a rolagem da página
+                document.body.style.overflow = 'hidden'; 
             }
         }
 
@@ -387,16 +386,14 @@
             const modal = document.getElementById(id);
             if (modal) {
                 modal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = ''; // Destrava a rolagem
-                
-                // Para o vídeo se for o modal de curso
+                document.body.style.overflow = '';
                 if (id === 'modalCurso') {
                     document.getElementById('videoFrame').src = "";
                 }
             }
         }
 
-        // Fechar ao clicar na parte escura (Overlay)
+        // Fechar ao clicar fora
         function fecharNoClique(event) {
             if (event.target.classList.contains('modal')) {
                 fecharModal(event.target.id);
